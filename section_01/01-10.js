@@ -19,3 +19,9 @@
  * ▣ 출력예제 1
  * 3
  */
+
+function solution(s, t) {
+	return s.split("").filter((char) => char === t).length;
+}
+
+console.log(solution("COMPUTERPROGRAMMING", "R"));
