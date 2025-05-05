@@ -26,3 +26,9 @@
  * time
  * student
  */
+
+function solution(s) {
+	return [...new Set(s)];
+}
+
+console.log(solution(["good", "time", "good", "time", "student"]));
