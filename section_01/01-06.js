@@ -23,3 +23,18 @@
  * 256
  * 41
  */
+
+function solution(arr) {
+	let sum = 0;
+	let min = Number.MAX_SAFE_INTEGER;
+
+	for (const num of arr) {
+		if (num % 2 === 0) continue;
+		sum += num;
+		min = Math.min(min, num);
+	}
+
+	return [sum, min];
+}
+
+console.log(solution([12, 77, 38, 41, 53, 92, 85]));
