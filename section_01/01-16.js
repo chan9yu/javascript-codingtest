@@ -18,3 +18,9 @@
  * ▣ 출력예제 1
  * kset
  */
+
+function solution(s) {
+	return [...new Set(s)].join("");
+}
+
+console.log(solution("ksekkset"));
