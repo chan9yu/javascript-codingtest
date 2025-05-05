@@ -16,3 +16,9 @@
  * ▣ 출력예제 1
  * ITISTIMETOSTUDY
  */
+
+function solution(s) {
+	return s.toUpperCase();
+}
+
+console.log(solution("ItisTimeToStudy"));
