@@ -16,3 +16,9 @@
  * ▣ 출력예제 1
  * B#N#N#
  */
+
+function solution(s) {
+	return s.replaceAll("A", "#");
+}
+
+console.log(solution("BANANA"));
