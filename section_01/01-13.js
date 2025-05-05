@@ -16,3 +16,12 @@
  * ▣ 출력예제 1
  * sTUdy
  */
+
+function solution(s) {
+	return s
+		.split("")
+		.map((char) => (char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()))
+		.join("");
+}
+
+console.log(solution("StuDY"));
