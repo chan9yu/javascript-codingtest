@@ -16,3 +16,9 @@
  * ▣ 출력예제 1
  * 3
  */
+
+function solution(s) {
+	return s.split("").reduce((acc, cur) => (cur === cur.toUpperCase() ? (acc += 1) : acc), 0);
+}
+
+console.log(solution("KoreaTimeGood"));
