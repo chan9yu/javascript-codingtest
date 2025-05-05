@@ -23,3 +23,19 @@
  * ▣ 출력예제 1
  * beautiful
  */
+
+function solution(s) {
+	let answer = s[0];
+	let max = Number.MIN_SAFE_INTEGER;
+
+	for (const item of s) {
+		if (max < item.length) {
+			max = item.length;
+			answer = item;
+		}
+	}
+
+	return answer;
+}
+
+console.log(solution(["teacher", "time", "student", "beautiful", "good"]));
