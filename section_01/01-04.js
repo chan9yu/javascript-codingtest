@@ -22,3 +22,10 @@
  * ▣ 출력예제 2
  * 55
  */
+
+function solution(n) {
+	return (n * (n + 1)) / 2;
+}
+
+console.log(solution(6));
+console.log(solution(10));
