@@ -23,7 +23,18 @@
  */
 
 function solution(arr) {
-	// 여기에 풀이를 작성하세요
+	const sum = arr.reduce((acc, cur) => acc + cur);
+	const target = sum - 100;
+
+	for (let i = 0; i < arr.length - 1; i++) {
+		for (let j = i + 1; j < arr.length; j++) {
+			if (arr[i] + arr[j] === target) {
+				arr.splice(j, 1);
+				arr.splice(i, 1);
+				return arr.sort((a, b) => a - b);
+			}
+		}
+	}
 }
 
 console.log(solution([20, 7, 23, 19, 10, 15, 25, 8, 13])); // [20, 7, 23, 19, 10, 8, 13]
