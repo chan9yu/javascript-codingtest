@@ -19,7 +19,7 @@
  */
 
 function solution(s) {
-	// 여기에 풀이를 작성하세요
+	return [...new Set(s)].join("");
 }
 
 console.log(solution("ksekkset")); // kset
