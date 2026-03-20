@@ -21,7 +21,17 @@
  */
 
 function solution(s) {
-	// 여기에 풀이를 작성하세요
+	let answer;
+	let max = Number.MIN_SAFE_INTEGER;
+
+	for (let v of s) {
+		if (max < v.length) {
+			answer = v;
+			max = v.length;
+		}
+	}
+
+	return answer;
 }
 
 console.log(solution(["teacher", "time", "student", "beautiful", "good"])); // beautiful
