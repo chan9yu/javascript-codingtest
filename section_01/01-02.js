@@ -25,7 +25,10 @@
  */
 
 function solution(a, b, c) {
-	// 여기에 풀이를 작성하세요
+	const max = Math.max(a, b, c);
+	const sum = a + b + c;
+
+	return sum - max > max ? "YES" : "NO";
 }
 
 console.log(solution(6, 7, 11)); // YES
