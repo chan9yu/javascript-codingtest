@@ -21,7 +21,7 @@
  */
 
 function solution(s, t) {
-	// 여기에 풀이를 작성하세요
+	return s.split(t).length - 1;
 }
 
 console.log(solution("COMPUTERPROGRAMMING", "R")); // 3
