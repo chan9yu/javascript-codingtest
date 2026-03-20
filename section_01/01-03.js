@@ -25,7 +25,7 @@
  */
 
 function solution(n) {
-	// 여기에 풀이를 작성하세요
+	return Math.ceil(n / 12);
 }
 
 console.log(solution(25)); // 3
