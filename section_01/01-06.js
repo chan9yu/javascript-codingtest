@@ -21,7 +21,8 @@
  */
 
 function solution(arr) {
-	// 여기에 풀이를 작성하세요
+	const odd = arr.filter((v) => v % 2 === 1);
+	return [odd.reduce((acc, cur) => acc + cur), Math.min(...odd)];
 }
 
 console.log(solution([12, 77, 38, 41, 53, 92, 85])); // [256, 41]
