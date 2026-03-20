@@ -23,7 +23,7 @@
  */
 
 function solution(s) {
-	// 여기에 풀이를 작성하세요
+	return [...new Set(s)];
 }
 
 console.log(solution(["good", "time", "good", "time", "student"])); // ["good", "time", "student"]
