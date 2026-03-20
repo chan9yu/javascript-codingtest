@@ -19,7 +19,7 @@
  */
 
 function solution(s) {
-	// 여기에 풀이를 작성하세요
+	return [...s].filter((v) => v >= "A" && v <= "Z").length;
 }
 
 console.log(solution("KoreaTimeGood")); // 3
