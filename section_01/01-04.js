@@ -24,7 +24,7 @@
  */
 
 function solution(n) {
-	// 여기에 풀이를 작성하세요
+	return (n * (n + 1)) / 2;
 }
 
 console.log(solution(6)); // 21
