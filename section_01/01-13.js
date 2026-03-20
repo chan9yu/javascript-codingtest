@@ -19,7 +19,7 @@
  */
 
 function solution(s) {
-	// 여기에 풀이를 작성하세요
+	return [...s].map((v) => (v >= "A" && v <= "Z" ? v.toLowerCase() : v.toUpperCase())).join("");
 }
 
 console.log(solution("StuDY")); // sTUdy
