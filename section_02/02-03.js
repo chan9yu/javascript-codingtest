@@ -29,8 +29,26 @@
  * D
  */
 
+const WIN_OBJ = {
+	1: 3,
+	2: 1,
+	3: 2
+};
+
 function solution(a, b) {
-	// 여기에 풀이를 작성하세요
+	const answer = [];
+
+	for (let i = 0; i < a.length; i++) {
+		if (a[i] === b[i]) {
+			answer.push("D");
+		} else if (WIN_OBJ[a[i]] === b[i]) {
+			answer.push("A");
+		} else {
+			answer.push("B");
+		}
+	}
+
+	return answer;
 }
 
 console.log(solution([2, 3, 3, 1, 3], [1, 1, 2, 2, 3])); // A B A B D
