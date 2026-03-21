@@ -24,13 +24,38 @@
  */
 
 function solution(arr) {
-	// 여기에 풀이를 작성하세요
+	let answer = Number.MIN_SAFE_INTEGER;
+	let leftSum = 0;
+	let rightSum = 0;
+
+	for (let i = 0; i < arr.length; i++) {
+		let rowSum = 0;
+		let colSum = 0;
+
+		for (let j = 0; j < arr.length; j++) {
+			rowSum += arr[i][j];
+			colSum += arr[j][i];
+		}
+
+		answer = Math.max(answer, rowSum, colSum);
+	}
+
+	for (let i = 0; i < arr.length; i++) {
+		leftSum += arr[i][i];
+		rightSum += arr[i][arr.length - i - 1];
+	}
+
+	answer = Math.max(answer, leftSum, rightSum);
+
+	return answer;
 }
 
-console.log(solution([
-	[10, 13, 10, 12, 15],
-	[12, 39, 30, 23, 11],
-	[11, 25, 50, 53, 15],
-	[19, 27, 29, 37, 27],
-	[19, 13, 30, 13, 19],
-])); // 155
+console.log(
+	solution([
+		[10, 13, 10, 12, 15],
+		[12, 39, 30, 23, 11],
+		[11, 25, 50, 53, 15],
+		[19, 27, 29, 37, 27],
+		[19, 13, 30, 13, 19]
+	])
+); // 155
