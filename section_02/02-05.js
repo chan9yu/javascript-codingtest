@@ -22,7 +22,21 @@
  */
 
 function solution(arr) {
-	// 여기에 풀이를 작성하세요
+	const answer = Array.from({ length: arr.length }).fill(1);
+
+	for (let i = 0; i < arr.length; i++) {
+		for (let j = 0; j < arr.length; j++) {
+			if (arr[i] === arr[j]) {
+				continue;
+			}
+
+			if (arr[i] < arr[j]) {
+				answer[i] += 1;
+			}
+		}
+	}
+
+	return answer;
 }
 
 console.log(solution([87, 89, 92, 100, 76])); // 4 3 2 1 5
