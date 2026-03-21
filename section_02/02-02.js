@@ -21,7 +21,17 @@
  */
 
 function solution(arr) {
-	// 여기에 풀이를 작성하세요
+	let answer = 0;
+	let max = Number.MIN_SAFE_INTEGER;
+
+	for (let i = 0; i < arr.length; i++) {
+		if (max < arr[i]) {
+			max = arr[i];
+			answer += 1;
+		}
+	}
+
+	return answer;
 }
 
 console.log(solution([130, 135, 148, 140, 145, 150, 150, 153])); // 5
