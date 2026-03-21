@@ -26,7 +26,19 @@
  */
 
 function solution(arr) {
-	// 여기에 풀이를 작성하세요
+	let answer = 0;
+	let plus = 0;
+
+	for (let v of arr) {
+		if (v === 1) {
+			plus += 1;
+			answer += plus;
+		} else {
+			plus = 0;
+		}
+	}
+
+	return answer;
 }
 
 console.log(solution([1, 0, 1, 1, 1, 0, 0, 1, 1, 0])); // 10
