@@ -27,13 +27,41 @@
  */
 
 function solution(arr) {
-	// 여기에 풀이를 작성하세요
+	let answer = 0;
+
+	const dx = [1, 0, -1, 0];
+	const dy = [0, 1, 0, -1];
+
+	for (let i = 0; i < arr.length; i++) {
+		for (let j = 0; j < arr.length; j++) {
+			let isPeak = true;
+
+			for (let k = 0; k < dx.length; k++) {
+				const nx = i + dx[k];
+				const ny = j + dy[k];
+				const target = arr?.[nx]?.[ny] ?? 0;
+
+				if (arr[i][j] <= target) {
+					isPeak = false;
+					break;
+				}
+			}
+
+			if (isPeak) {
+				answer += 1;
+			}
+		}
+	}
+
+	return answer;
 }
 
-console.log(solution([
-	[5, 3, 7, 2, 3],
-	[3, 7, 1, 6, 1],
-	[7, 2, 5, 3, 4],
-	[4, 3, 6, 4, 1],
-	[8, 7, 3, 5, 2],
-])); // 10
+console.log(
+	solution([
+		[5, 3, 7, 2, 3],
+		[3, 7, 1, 6, 1],
+		[7, 2, 5, 3, 4],
+		[4, 3, 6, 4, 1],
+		[8, 7, 3, 5, 2]
+	])
+); // 10
