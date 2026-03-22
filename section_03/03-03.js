@@ -20,7 +20,7 @@
  */
 
 function solution(str) {
-	// 여기에 풀이를 작성하세요
+	return Number(str.replace(/[^0-9]/g, ""));
 }
 
 console.log(solution("g0en2T0s8eSoft")); // 208
