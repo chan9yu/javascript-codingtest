@@ -21,7 +21,20 @@
  */
 
 function solution(str) {
-	// 여기에 풀이를 작성하세요
+	const lowerStr = str.toLowerCase();
+	let left = 0;
+	let right = lowerStr.length - 1;
+
+	while (left < right) {
+		if (lowerStr[left] !== lowerStr[right]) {
+			return "NO";
+		}
+
+		left += 1;
+		right -= 1;
+	}
+
+	return "YES";
 }
 
 console.log(solution("gooG")); // YES
