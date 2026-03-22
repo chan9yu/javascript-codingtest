@@ -20,7 +20,19 @@
  */
 
 function solution(str) {
-	// 여기에 풀이를 작성하세요
+	let answer = "";
+	let count = 1;
+
+	for (let i = 0; i < str.length; i++) {
+		if (str[i] === str[i + 1]) {
+			count += 1;
+		} else {
+			answer = `${answer}${str[i]}${count > 1 ? count : ""}`;
+			count = 1;
+		}
+	}
+
+	return answer;
 }
 
 console.log(solution("KKHSSSSSSSE")); // K2HS7E
