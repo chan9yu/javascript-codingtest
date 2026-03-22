@@ -20,7 +20,27 @@
  */
 
 function solution(s, t) {
-	// 여기에 풀이를 작성하세요
+	const answer = [];
+	const n = s.length;
+	let count = 0;
+
+	for (let i = 0; i < n; i++) {
+		if (s[i] === t) count = 0;
+		else count += 1;
+
+		answer.push(count);
+	}
+
+	count = 0;
+
+	for (let j = n - 1; j >= 0; j--) {
+		if (s[j] === t) count = 0;
+		else count += 1;
+
+		answer[j] = Math.min(answer[j], count);
+	}
+
+	return answer;
 }
 
 console.log(solution("teachermode", "e")); // 1 0 1 2 1 0 1 2 2 1 0
