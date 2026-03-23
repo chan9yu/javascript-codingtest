@@ -24,8 +24,18 @@
  * 143
  */
 
-function solution(n, k, arr) {
-	// 여기에 풀이를 작성하세요
+function solution(k, card) {
+	const sumSet = new Set();
+
+	for (let i = 0; i < card.length; i++) {
+		for (let j = i + 1; j < card.length; j++) {
+			for (let l = j + 1; l < card.length; l++) {
+				sumSet.add(card[i] + card[j] + card[l]);
+			}
+		}
+	}
+
+	return [...sumSet].sort((a, b) => b - a)[k - 1];
 }
 
-console.log(solution(10, 3, [13, 15, 34, 23, 45, 65, 33, 11, 26, 42])); // 143
+console.log(solution(3, [13, 15, 34, 23, 45, 65, 33, 11, 26, 42])); // 143
