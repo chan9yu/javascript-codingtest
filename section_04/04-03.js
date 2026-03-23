@@ -31,14 +31,45 @@
  * 3
  */
 
-function solution(n, m, arr) {
-	// 여기에 풀이를 작성하세요
+function solution(test) {
+	let answer = 0;
+	let m = test.length;
+	let n = test[0].length;
+
+	for (let i = 1; i <= n; i++) {
+		for (let j = 1; j <= n; j++) {
+			if (i === j) continue;
+
+			let isMento = true;
+
+			for (let k = 0; k < m; k++) {
+				let pi = 0;
+				let pj = 0;
+
+				for (let s = 0; s < n; s++) {
+					if (test[k][s] === i) pi = s;
+					if (test[k][s] === j) pj = s;
+				}
+
+				if (pi >= pj) {
+					isMento = false;
+					break;
+				}
+			}
+
+			if (isMento) {
+				answer += 1;
+			}
+		}
+	}
+
+	return answer;
 }
 
 console.log(
-	solution(4, 3, [
+	solution([
 		[3, 4, 1, 2],
 		[4, 3, 2, 1],
-		[3, 1, 4, 2],
-	]),
+		[3, 1, 4, 2]
+	])
 ); // 3
