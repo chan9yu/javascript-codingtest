@@ -21,8 +21,26 @@
  * 137
  */
 
-function solution(n, arr) {
-	// 여기에 풀이를 작성하세요
+function solution(arr) {
+	let answer = 0;
+	let max = Number.MIN_SAFE_INTEGER;
+
+	for (let x of arr) {
+		let sum = 0;
+		let tmp = x;
+
+		while (tmp > 0) {
+			sum += tmp % 10;
+			tmp = Math.floor(tmp / 10);
+		}
+
+		if (sum >= max || (sum === max && x > answer)) {
+			max = sum;
+			answer = x;
+		}
+	}
+
+	return answer;
 }
 
-console.log(solution(7, [128, 460, 603, 40, 521, 137, 123])); // 137
+console.log(solution([128, 460, 603, 40, 521, 137, 123])); // 137
