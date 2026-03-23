@@ -30,16 +30,39 @@
  * 4
  */
 
-function solution(n, m, arr) {
-	// 여기에 풀이를 작성하세요
+function solution(m, product) {
+	product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+
+	let answer = 0;
+
+	for (let i = 0; i < product.length; i++) {
+		const costI = product[i][0] / 2 + product[i][1];
+		let currentMoney = m - costI;
+		let count = 1;
+
+		for (let j = 0; j < product.length; j++) {
+			if (i === j) continue;
+
+			const costJ = product[j][0] + product[j][1];
+
+			if (currentMoney >= costJ) {
+				currentMoney -= costJ;
+				count += 1;
+			}
+		}
+
+		answer = Math.max(answer, count);
+	}
+
+	return answer;
 }
 
 console.log(
-	solution(5, 28, [
+	solution(28, [
 		[6, 6],
 		[2, 2],
 		[4, 3],
 		[4, 5],
-		[10, 3],
-	]),
+		[10, 3]
+	])
 ); // 4
