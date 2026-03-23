@@ -18,7 +18,7 @@
  */
 
 function solution(n) {
-	// 여기에 풀이를 작성하세요
+	return ((1 + n) * 10) / 2;
 }
 
 console.log(solution(10));

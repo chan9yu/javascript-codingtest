@@ -24,7 +24,7 @@
  */
 
 function solution(day, arr) {
-	// 여기에 풀이를 작성하세요
+	return arr.map((v) => v % 10).filter((v) => v === day).length;
 }
 
 console.log(solution(3, [25, 23, 11, 47, 53, 17, 33]));
