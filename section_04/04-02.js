@@ -21,8 +21,18 @@
  * 23 2 73 2 3
  */
 
-function solution(n, arr) {
-	// 여기에 풀이를 작성하세요
+function isPrime(num) {
+	if (num < 2) return false;
+
+	for (let i = 2; i <= Math.sqrt(num); i++) {
+		if (num % i === 0) return false;
+	}
+
+	return true;
 }
 
-console.log(solution(9, [32, 55, 62, 20, 250, 370, 200, 30, 100])); // 23 2 73 2 3
+function solution(arr) {
+	return arr.map((v) => Number(v.toString().split("").reverse().join(""))).filter((v) => isPrime(v));
+}
+
+console.log(solution([32, 55, 62, 20, 250, 370, 200, 30, 100])); // 23 2 73 2 3
