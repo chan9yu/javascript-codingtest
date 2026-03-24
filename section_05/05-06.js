@@ -25,7 +25,22 @@
  */
 
 function solution(str) {
-	// 여기에 풀이를 작성하세요
+	const sH = new Map();
+	let answer;
+	let max = Number.MIN_SAFE_INTEGER;
+
+	for (let v of str) {
+		sH.set(v, sH.has(v) ? sH.get(v) + 1 : 1);
+	}
+
+	sH.forEach((v, k) => {
+		if (max < v) {
+			max = v;
+			answer = k;
+		}
+	});
+
+	return answer;
 }
 
 console.log(solution("BACBACCACCBDEDE")); // C
