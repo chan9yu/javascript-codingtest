@@ -22,8 +22,52 @@
  * 출력설명: {bac}, {acb}, {cba} 3개의 부분문자열이 "abc"문자열과 아나그램입니다.
  */
 
+function compareMaps(map1, map2) {
+	if (map1.size !== map2.size) {
+		return false;
+	}
+
+	for (let [key, val] of map1) {
+		if (!map2.has(key) || map2.get(key) !== val) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
 function solution(s, t) {
-	// 여기에 풀이를 작성하세요
+	const tH = new Map();
+	const sH = new Map();
+
+	let answer = 0;
+	let left = 0;
+
+	for (let v of t) {
+		tH.set(v, tH.has(v) ? tH.get(v) + 1 : 1);
+	}
+
+	for (let i = 0; i < t.length - 1; i++) {
+		sH.set(s[i], sH.has(s[i]) ? sH.get(s[i]) + 1 : 1);
+	}
+
+	for (let right = t.length - 1; right < s.length; right++) {
+		sH.set(s[right], sH.has(s[right]) ? sH.get(s[right]) + 1 : 1);
+
+		if (compareMaps(sH, tH)) {
+			answer += 1;
+		}
+
+		sH.set(s[left], sH.get(s[left]) - 1);
+
+		if (sH.get(s[left]) === 0) {
+			sH.delete(s[left]);
+		}
+
+		left += 1;
+	}
+
+	return answer;
 }
 
 console.log(solution("bacaAacba", "abc")); // 3
