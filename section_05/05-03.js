@@ -25,7 +25,28 @@
  */
 
 function solution(m, arr) {
-	// 여기에 풀이를 작성하세요
+	let answer = 0;
+	let sum = 0;
+	let left = 0;
+
+	for (let right = 0; right < arr.length; right++) {
+		sum += arr[right];
+
+		if (sum === m) {
+			answer += 1;
+		}
+
+		while (sum >= m) {
+			sum -= arr[left];
+			left += 1;
+
+			if (sum === m) {
+				answer += 1;
+			}
+		}
+	}
+
+	return answer;
 }
 
 console.log(solution(6, [1, 2, 1, 3, 1, 1, 1, 2])); // 3
