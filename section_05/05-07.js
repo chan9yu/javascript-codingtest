@@ -33,7 +33,21 @@
  */
 
 function solution(str1, str2) {
-	// 여기에 풀이를 작성하세요
+	const sH = new Map();
+
+	for (let v of str1) {
+		sH.set(v, sH.has(v) ? sH.get(v) + 1 : 1);
+	}
+
+	for (let v of str2) {
+		if (!sH.has(v) || sH.get(v) === 0) {
+			return "NO";
+		}
+
+		sH.set(v, sH.get(v) - 1);
+	}
+
+	return "YES";
 }
 
 console.log(solution("AbaAeCe", "baeeACA")); // YES
