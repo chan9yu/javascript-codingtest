@@ -23,10 +23,26 @@
  *
  * ▣ 출력예제 1
  * YES
+ *
+ * ▣ 입력예제 2
+ * CBA
+ * CADEBG
+ *
+ * ▣ 출력예제 2
+ * NO
  */
 
 function solution(need, plan) {
-	// 여기에 풀이를 작성하세요
+	const queue = need.split("");
+
+	for (const v of plan) {
+		if (v === queue[0]) {
+			queue.shift();
+		}
+	}
+
+	return queue.length === 0 ? "YES" : "NO";
 }
 
-console.log(solution('CBA', 'CBDAGE')); // YES
+console.log(solution("CBA", "CBDAGE")); // YES
+console.log(solution("CBA", "CADEBG")); // NO
