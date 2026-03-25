@@ -19,7 +19,18 @@
  */
 
 function solution(s) {
-	// 여기에 풀이를 작성하세요
+	const stack = [];
+
+	for (const v of s) {
+		if (v === "(") {
+			stack.push(v);
+		} else {
+			if (stack.length === 0) return "NO";
+			stack.pop();
+		}
+	}
+
+	return stack.length === 0 ? "YES" : "NO";
 }
 
-console.log(solution('(()(()))((')); // NO
+console.log(solution("(()(()))((")); // NO
