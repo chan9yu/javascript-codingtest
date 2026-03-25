@@ -20,7 +20,33 @@
  */
 
 function solution(s) {
-	// 여기에 풀이를 작성하세요
+	const stack = [];
+
+	for (let v of s) {
+		if (!isNaN(v)) {
+			stack.push(Number(v));
+		} else {
+			const right = stack.pop();
+			const left = stack.pop();
+
+			switch (v) {
+				case "+":
+					stack.push(left + right);
+					break;
+				case "-":
+					stack.push(left - right);
+					break;
+				case "*":
+					stack.push(left * right);
+					break;
+				case "/":
+					stack.push(left / right);
+					break;
+			}
+		}
+	}
+
+	return stack[0];
 }
 
-console.log(solution('352+*9-')); // 12
+console.log(solution("352+*9-")); // 12
