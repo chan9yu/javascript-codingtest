@@ -19,7 +19,17 @@
  */
 
 function solution(s) {
-	// 여기에 풀이를 작성하세요
+	const stack = [];
+
+	for (const v of s) {
+		if (v !== ")") {
+			stack.push(v);
+		} else {
+			while (stack.pop() !== "(") {}
+		}
+	}
+
+	return stack.join("");
 }
 
-console.log(solution('(A(BC)D)EF(G(H)(IJ)K)LM(N)')); // EFLM
+console.log(solution("(A(BC)D)EF(G(H)(IJ)K)LM(N)")); // EFLM
