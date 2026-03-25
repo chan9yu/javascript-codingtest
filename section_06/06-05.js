@@ -32,8 +32,26 @@
  */
 
 function solution(s) {
-	// 여기에 풀이를 작성하세요
+	const stack = [];
+	let answer = 0;
+
+	for (let i = 0; i < s.length; i++) {
+		if (s[i] === "(") {
+			stack.push(s[i]);
+		} else {
+			stack.pop();
+			if (s[i - 1] === "(") {
+				// 레이저
+				answer += stack.length;
+			} else {
+				// 떨어진 막대기
+				answer += 1;
+			}
+		}
+	}
+
+	return answer;
 }
 
-console.log(solution('()(((()())(())()))(())')); // 17
-console.log(solution('(((()(()()))(())()))(()())')); // 24
+console.log(solution("()(((()())(())()))(())")); // 17
+console.log(solution("(((()(()()))(())()))(()())")); // 24
