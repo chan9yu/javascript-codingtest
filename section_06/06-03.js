@@ -27,16 +27,41 @@
  */
 
 function solution(board, moves) {
-	// 여기에 풀이를 작성하세요
+	const stack = [];
+	let answer = 0;
+
+	for (let i = 0; i < moves.length; i++) {
+		const pos = moves[i] - 1;
+
+		for (let j = 0; j < board.length; j++) {
+			const target = board[j][pos];
+			if (target !== 0) {
+				board[j][pos] = 0;
+
+				if (target === stack[stack.length - 1]) {
+					stack.pop();
+					answer += 2;
+				} else {
+					stack.push(target);
+				}
+
+				break;
+			}
+		}
+	}
+
+	return answer;
 }
 
-let board = [
-	[0, 0, 0, 0, 0],
-	[0, 0, 1, 0, 3],
-	[0, 2, 5, 0, 1],
-	[4, 2, 4, 4, 2],
-	[3, 5, 1, 3, 1],
-];
-
-let moves = [1, 5, 3, 5, 1, 2, 1, 4];
-console.log(solution(board, moves)); // 4
+console.log(
+	solution(
+		[
+			[0, 0, 0, 0, 0],
+			[0, 0, 1, 0, 3],
+			[0, 2, 5, 0, 1],
+			[4, 2, 4, 4, 2],
+			[3, 5, 1, 3, 1]
+		],
+		[1, 5, 3, 5, 1, 2, 1, 4]
+	)
+); // 4
